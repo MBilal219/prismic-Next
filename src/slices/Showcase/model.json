@@ -1,8 +1,8 @@
 {
-  "id": "bento",
+  "id": "showcase",
   "type": "SharedSlice",
-  "name": "Bento",
-  "description": "Bento",
+  "name": "Showcase",
+  "description": "Showcase",
   "variations": [
     {
       "id": "default",
@@ -16,38 +16,9 @@
           "type": "StructuredText",
           "config": {
             "label": "Heading",
-            "placeholder": "italic for golen text",
-            "allowTargetBlank": true,
-            "multi": "em,heading2"
-          }
-        },
-        "description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Description",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph"
-          }
-        }
-      },
-      "items": {
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading3"
-          }
-        },
-        "body": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Body",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
+            "multi": "heading2"
           }
         },
         "image": {
@@ -58,16 +29,52 @@
             "thumbnails": []
           }
         },
-        "wide": {
-          "type": "Boolean",
+        "icon": {
+          "type": "Select",
           "config": {
-            "label": "Wide",
-            "default_value": false,
-            "placeholder_true": "true",
-            "placeholder_false": "false"
+            "label": "Icon",
+            "placeholder": "",
+            "options": [
+              "gear",
+              "cycle"
+            ]
+          }
+        },
+        "subheading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subheading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }
