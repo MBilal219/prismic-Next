@@ -27,6 +27,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "integration": {
+              "type": "SharedSlice"
+            },
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
             "case_studies": {
               "type": "SharedSlice"
             },
