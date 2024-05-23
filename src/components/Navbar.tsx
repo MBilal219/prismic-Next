@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import WordMark from "@/components/WordMark";
 import { Content, asLink } from "@prismicio/client";
 import Link from "next/link";
-import { PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import ButtonLink from "@/components/ButtonLink";
 import { MdMenu, MdClose } from "react-icons/md";
 import clsx from "clsx";
@@ -22,7 +22,15 @@ const Navbar = ({ navData }: NavbarProps) => {
       <div className="mx-auto flex max-w-6xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
         <div className="flex items-center justify-between">
           <Link href={"/"} className="z-50">
-            <WordMark />
+            {navData.data.fallback_og_image.url ? (
+              <PrismicNextImage
+                field={navData.data.fallback_og_image}
+                width={170}
+                height={46}
+              />
+            ) : (
+              <WordMark />
+            )}
             <span className="sr-only">Glisten.ai Home Page</span>
           </Link>
           <button
@@ -45,7 +53,7 @@ const Navbar = ({ navData }: NavbarProps) => {
         >
           <button
             type="button"
-            className="fixed right-4 top-4 mb-4 block p-2 text-3xl text-white md:hidden"
+            className="fixed right-4 top-4 mb-8 block p-2 text-3xl text-white md:hidden"
             aria-expanded={open}
             onClick={() => setOpen(false)}
           >
@@ -53,7 +61,7 @@ const Navbar = ({ navData }: NavbarProps) => {
             <span className="sr-only">Open menu</span>
           </button>
 
-          <div className="grid justify-items-end gap-8">
+          <div className="mt-4 grid justify-items-end gap-8">
             {navData.data.navigation.map((item, idx) =>
               item.cta_button ? (
                 <ButtonLink

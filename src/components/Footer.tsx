@@ -1,7 +1,7 @@
 import React from "react";
 import WordMark from "@/components/WordMark";
 import { createClient } from "@/prismicio";
-import { PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 
 type Props = {};
@@ -12,7 +12,15 @@ const Footer = async (props: Props) => {
   return (
     <footer className="flex flex-col items-center justify-between gap-6 border-t border-slate-600 px-8 py-7 md:flex-row">
       <Link href={"/"}>
-        <WordMark />
+        {main.data.fallback_og_image.url ? (
+          <PrismicNextImage
+            field={main.data.fallback_og_image}
+            width={170}
+            height={46}
+          />
+        ) : (
+          <WordMark />
+        )}
         <span className="sr-only">Glisten.ai Home Page</span>
       </Link>
       <nav aria-label="Footer">
